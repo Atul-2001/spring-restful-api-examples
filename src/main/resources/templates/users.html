@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+          crossorigin="anonymous">
+
+    <link href="/static/assets/stylesheet/style.css" rel="stylesheet" th:href="@{/assets/stylesheet/style.css}">
+
+    <title>Users</title>
+</head>
+<body>
+<!--/*@thymesVar id="users" type="java.util.List<com.signature.model.User>"*/-->
+<!--/*@thymesVar id="company" type="com.signature.model.Company"*/-->
+<!--/*@thymesVar id="address" type="com.signature.model.Address"*/-->
+<!--/*@thymesVar id="user" type="com.signature.model.User"*/-->
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8 col-sm-9 col-md-9 col-lg-10">
+                            <h1 class="card-title">My Recipes!</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(users)}">
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Company</th>
+                                <th>Address</th>
+                            </tr>
+                            </thead>
+                            <tr th:each="user : ${users}">
+                                <td th:text="${user.id}">1</td>
+                                <td th:text="${user.name}">Atul Singh</td>
+                                <td th:text="${user.email}">atul.atendra15@gmail.com</td>
+                                <td th:text="${user.phone}">9876543210</td>
+                                <td th:text="${user.company.name}">s759labs Technology LLP</td>
+                                <td th:text="${user.address.city}">Ayodhya, Uttar Pradesh, India</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
